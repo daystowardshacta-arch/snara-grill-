@@ -1,0 +1,196 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --font-sans: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --color-obs: #fbf3e7;
+    --color-obs2: #ffffff;
+    --color-obs3: #2115091f;
+    --color-obs4: #f3e6d3;
+    --color-cream: #211509;
+    --color-cream2: #4a3a2c;
+    --color-ochre: #c1272d;
+    --color-ochre2: #9c1f24;
+    --color-terra: #9c1f24;
+    --color-teal: #2f4b37;
+    --color-teal2: #23392a;
+
+    --color-primary: var(--color-cream);
+    --color-primary-foreground: var(--color-obs);
+    --color-secondary: var(--color-obs4);
+    --color-secondary-foreground: var(--color-cream);
+    --color-destructive: var(--color-ochre);
+    --color-destructive-foreground: var(--color-obs);
+    --color-accent: var(--color-obs2);
+    --color-accent-foreground: var(--color-cream);
+    --color-input: var(--color-obs3);
+    --color-background: var(--color-obs);
+    --color-foreground: var(--color-cream);
+    --color-ring: var(--color-ochre);
+  }
+}
+
+body {
+  background-color: var(--color-obs);
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.hero-pattern {
+  background-image: linear-gradient(#dc262604 1px, transparent 1px),
+    linear-gradient(90deg, #dc262604 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+
+.drawer-overlay {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: rgba(17, 24, 39, 0.4);
+}
+
+.food-gradient {
+  background: linear-gradient(135deg, var(--color-obs2) 0%, var(--color-obs) 100%);
+}
+
+.map-grid {
+  background-color: transparent;
+  background-image: linear-gradient(#dc262608 1px, transparent 1px),
+    linear-gradient(90deg, #dc262608 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obs);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-obs3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ochre);
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.fade-up {
+  animation: 0.5s ease-out both fadeUp;
+}
+
+.marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-wrapper:before,
+.marquee-wrapper:after {
+  content: "";
+  z-index: 2;
+  pointer-events: none;
+  width: 80px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.marquee-wrapper:before {
+  background: linear-gradient(to right, var(--color-obs), transparent);
+  left: 0;
+}
+
+.marquee-wrapper:after {
+  background: linear-gradient(to left, var(--color-obs), transparent);
+  right: 0;
+}
+
+.marquee-track {
+  will-change: transform;
+  animation: 18s linear infinite marquee-scroll;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .marquee-track {
+    animation-duration: 10s;
+  }
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.input-field {
+  background: var(--color-obs2);
+  border: 1px solid var(--color-obs3);
+  color: var(--color-cream);
+  border-radius: 8px;
+  outline: none;
+  width: 100%;
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+.input-field:focus {
+  border-color: var(--color-ochre);
+}
+
+.input-field::placeholder {
+  color: var(--color-cream2);
+  opacity: 0.5;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Sanara Grill Restaurant",
+  "description": "Sanara Grill Restaurant in Mbezi, Dar es Salaam — Sanara grills Mbezi. Nicely done, well served. Flame-grilled BBQ, Seafood, Biryani, Cocktails & Table Reservations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
