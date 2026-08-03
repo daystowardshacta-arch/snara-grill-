@@ -4,6 +4,7 @@ import { ShoppingCart, Menu as MenuIcon, X, PhoneCall, CalendarCheck } from 'luc
 import { useCart } from '../context/CartContext';
 import { NotificationBell } from './NotificationBell';
 import { SANARA_INFO } from '../data/menuData';
+import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const { cartCount } = useCart();
@@ -56,11 +57,7 @@ export const Navbar: React.FC = () => {
           to="/"
           className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0"
         >
-          <img
-            src="/sanara_logo.png"
-            alt="Sanara Grill Logo"
-            className="h-11 sm:h-12 w-auto object-contain max-h-[48px]"
-          />
+          <Logo variant="header" />
         </Link>
 
         <div className="hidden lg:flex items-center gap-7">

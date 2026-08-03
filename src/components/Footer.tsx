@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, PhoneCall, Clock, Instagram, Heart, Star, CalendarCheck } from 'lucide-react';
 import { SANARA_INFO } from '../data/menuData';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,11 +11,7 @@ export const Footer: React.FC = () => {
         {/* Brand Column */}
         <div className="space-y-4">
           <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0">
-            <img
-              src="/sanara_logo.png"
-              alt="Sanara Grill Logo"
-              className="h-12 w-auto object-contain max-h-[52px]"
-            />
+            <Logo variant="footer" />
           </Link>
 
           <p className="text-xs text-stone-400 italic font-serif leading-relaxed">
