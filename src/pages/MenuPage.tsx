@@ -3,7 +3,8 @@ import { ALL_MENU_ITEMS, SANARA_INFO } from '../data/menuData';
 import { MenuItem } from '../types';
 import { useCart } from '../context/CartContext';
 import { DishDetailDrawer } from '../components/DishDetailDrawer';
-import { Search, Plus, Check, Sparkles, Filter, CalendarCheck, ShoppingCart } from 'lucide-react';
+import { Search, Plus, Check, Sparkles, Filter, CalendarCheck, ShoppingCart, MapPin, Clock, Banknote } from 'lucide-react';
+import { SymbolIcon } from '../components/SymbolIcon';
 import { Link } from 'react-router-dom';
 
 export const MenuPage: React.FC = () => {
@@ -43,14 +44,14 @@ export const MenuPage: React.FC = () => {
           </p>
 
           <div className="mt-4 flex flex-wrap justify-center gap-3 text-xs text-stone-300">
-            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800">
-              📍 Jangwani Shopping Centre, Mbezi
+            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800 flex items-center gap-1.5">
+              <MapPin size={13} className="text-orange-500" /> Jangwani Shopping Centre, Mbezi
             </span>
-            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800">
-              🕒 Open Daily until 12 AM
+            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800 flex items-center gap-1.5">
+              <Clock size={13} className="text-orange-400" /> Open Daily until 12 AM
             </span>
-            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800">
-              💰 {SANARA_INFO.priceRange}
+            <span className="px-3 py-1 rounded-lg bg-stone-900 border border-stone-800 flex items-center gap-1.5">
+              <Banknote size={13} className="text-amber-400" /> {SANARA_INFO.priceRange}
             </span>
           </div>
         </div>
@@ -140,8 +141,9 @@ export const MenuPage: React.FC = () => {
                     </div>
 
                     <div className="p-5">
-                      <div className="flex items-center gap-2 text-xs text-stone-400 mb-1">
-                        <span>{item.emoji} {item.cat}</span>
+                      <div className="flex items-center gap-1.5 text-xs text-stone-400 mb-1">
+                        <SymbolIcon symbol={item.emoji} size={14} cl="text-orange-400" />
+                        <span>{item.cat}</span>
                       </div>
                       <h3
                         className="font-serif text-lg font-bold text-amber-100 hover:text-orange-400 transition-colors cursor-pointer"

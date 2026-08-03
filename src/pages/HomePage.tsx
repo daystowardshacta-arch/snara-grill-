@@ -32,8 +32,14 @@ import {
   Award,
   ShieldCheck,
   Users,
-  Instagram
+  Instagram,
+  Play,
+  Accessibility,
+  Sun,
+  Salad,
+  Car
 } from 'lucide-react';
+import { SymbolIcon } from '../components/SymbolIcon';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -77,9 +83,13 @@ export const HomePage: React.FC = () => {
 
             {/* Headline & Tagline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-extrabold text-amber-50 tracking-tight leading-[1.1]">
-                SANARA GRILL <br />
-                <span className="text-orange-500 italic font-light">RESTAURANT</span>
+              <img
+                src="/sanara_logo.png"
+                alt="Sanara Grill"
+                className="h-16 sm:h-20 md:h-24 w-auto object-contain drop-shadow-2xl mb-2"
+              />
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-amber-50 tracking-tight leading-[1.1]">
+                SANARA GRILL <span className="text-orange-500 italic font-light">RESTAURANT</span>
               </h1>
               <p className="text-xl md:text-2xl font-serif italic text-amber-200/90 font-medium">
                 "{SANARA_INFO.tagline}"
@@ -121,24 +131,37 @@ export const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Hero Image / Collage */}
+          {/* Hero Image / Atmosphere Card */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden border border-stone-800 shadow-2xl group">
+            <div
+              onClick={() => navigate('/gallery#videos')}
+              className="relative rounded-3xl overflow-hidden border border-stone-800 shadow-2xl group cursor-pointer"
+            >
               <img
                 src={imgRooftop}
                 alt="Sanara Grill Rooftop Dining Mbezi"
                 className="w-full h-[440px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/20 to-transparent" />
+
+              {/* Subtle Circular Play Button Overlay in Center */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="w-14 h-14 rounded-full bg-stone-950/70 border border-white/20 backdrop-blur-sm text-white flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:bg-orange-600/90 transition-all">
+                  <Play size={22} className="fill-white ml-0.5" />
+                </div>
+              </div>
 
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-stone-900/90 backdrop-blur-md border border-stone-800 flex items-center justify-between">
                 <div>
-                  <div className="text-xs font-bold text-orange-400 uppercase tracking-widest">Atmosphere</div>
+                  <div className="text-xs font-bold text-orange-400 uppercase tracking-widest flex items-center gap-1.5">
+                    <span>Atmosphere</span>
+                    <span className="text-[10px] bg-orange-600/80 text-white px-2 py-0.5 rounded-full lowercase font-sans">watch video reels</span>
+                  </div>
                   <div className="text-sm font-serif font-bold text-amber-100">Scenic Rooftop & Live Music</div>
                 </div>
                 <div className="flex items-center gap-1 text-amber-400 font-bold text-sm">
@@ -148,7 +171,7 @@ export const HomePage: React.FC = () => {
             </div>
 
             {/* Floating Mini Badge */}
-            <div className="absolute -bottom-4 -left-4 bg-stone-900/95 backdrop-blur-md border border-stone-700 p-4 rounded-2xl shadow-xl hidden sm:flex items-center gap-3">
+            <div className="absolute -bottom-4 -left-4 bg-stone-900/95 backdrop-blur-md border border-stone-700 p-4 rounded-2xl shadow-xl hidden sm:flex items-center gap-3 pointer-events-none">
               <div className="w-10 h-10 rounded-xl bg-orange-600/20 text-orange-500 flex items-center justify-center font-bold">
                 <Flame size={20} />
               </div>
@@ -231,8 +254,9 @@ export const HomePage: React.FC = () => {
 
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center gap-2 text-xs text-stone-400 mb-1">
-                      <span>{item.emoji} {item.cat}</span>
+                    <div className="flex items-center gap-1.5 text-xs text-stone-400 mb-1">
+                      <SymbolIcon symbol={item.emoji} size={14} cl="text-orange-400" />
+                      <span>{item.cat}</span>
                     </div>
                     <h3
                       className="font-serif text-lg font-bold text-amber-100 hover:text-orange-400 transition-colors cursor-pointer"
@@ -344,7 +368,9 @@ export const HomePage: React.FC = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <div className="text-3xl mb-3">♿</div>
+            <div className="w-11 h-11 rounded-xl bg-orange-950/80 border border-orange-700/40 text-orange-400 flex items-center justify-center mb-4">
+              <Accessibility size={22} strokeWidth={1.75} />
+            </div>
             <h3 className="font-serif font-bold text-amber-100 text-base">Full Accessibility</h3>
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
               Wheelchair-accessible seating, entrance, parking, restroom, and assistive hearing loop.
@@ -352,7 +378,9 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <div className="text-3xl mb-3">🌇</div>
+            <div className="w-11 h-11 rounded-xl bg-amber-950/80 border border-amber-700/40 text-amber-400 flex items-center justify-center mb-4">
+              <Sun size={22} strokeWidth={1.75} />
+            </div>
             <h3 className="font-serif font-bold text-amber-100 text-base">Rooftop & Live Music</h3>
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
               Rooftop seating, live music events, cozy fireplace, craft cocktails, and sports broadcasts.
@@ -360,7 +388,9 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <div className="text-3xl mb-3">🥗</div>
+            <div className="w-11 h-11 rounded-xl bg-orange-950/80 border border-orange-700/40 text-orange-400 flex items-center justify-center mb-4">
+              <Salad size={22} strokeWidth={1.75} />
+            </div>
             <h3 className="font-serif font-bold text-amber-100 text-base">Diverse Offerings</h3>
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
               Halal certified, vegan & vegetarian options, organic dishes, late-night food until 12 AM.
@@ -368,7 +398,9 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="p-6 rounded-2xl bg-stone-900 border border-stone-800">
-            <div className="text-3xl mb-3">🐕</div>
+            <div className="w-11 h-11 rounded-xl bg-amber-950/80 border border-amber-700/40 text-amber-400 flex items-center justify-center mb-4">
+              <Car size={22} strokeWidth={1.75} />
+            </div>
             <h3 className="font-serif font-bold text-amber-100 text-base">Parking & Pets</h3>
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
               Ample free parking lot & street parking, dog-friendly seating (indoors & outdoors).

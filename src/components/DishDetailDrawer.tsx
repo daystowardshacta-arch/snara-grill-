@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Minus, Plus, Check } from 'lucide-react';
+import { Minus, Plus, Check, Clock } from 'lucide-react';
 import { MenuItem } from '../types';
 import { useCart } from '../context/CartContext';
 import { SANARA_INFO } from '../data/menuData';
@@ -82,8 +82,8 @@ export const DishDetailDrawer: React.FC<DishDetailDrawerProps> = ({ item, onClos
         <p className="font-sans text-[14px] text-cream/70 leading-relaxed mb-5">{item.desc}</p>
 
         <div className="flex gap-2 mb-5 flex-wrap">
-          <span className="px-3 py-1 bg-obs3 text-cream/70 rounded-full text-[10px] font-sans border border-obs4 flex items-center gap-1">
-            <SymbolIcon symbol="🕒" size={12} cl="text-teal2" /> {item.time} min
+          <span className="px-3 py-1 bg-obs3 text-cream/70 rounded-full text-[10px] font-sans border border-obs4 flex items-center gap-1.5">
+            <Clock size={13} className="text-orange-400" /> {item.time} min
           </span>
           {item.tags.map((t) => (
             <span

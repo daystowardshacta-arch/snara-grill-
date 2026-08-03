@@ -41,20 +41,20 @@ export const CartPage: React.FC = () => {
 
     const orderId = 'SANARA-' + Math.floor(100000 + Math.random() * 900000);
 
-    let text = `🔥 *NEW ORDER - SANARA GRILL RESTAURANT* 🔥\n`;
+    let text = `*NEW ORDER - SANARA GRILL RESTAURANT*\n`;
     text += `Ref: ${orderId}\n`;
     text += `==================================\n\n`;
-    text += `👤 *Customer:* ${customerName}\n`;
-    text += `📞 *Phone:* ${customerPhone}\n`;
-    text += `🛵 *Option:* ${orderType.toUpperCase()}\n`;
+    text += `Customer: ${customerName}\n`;
+    text += `Phone: ${customerPhone}\n`;
+    text += `Option: ${orderType.toUpperCase()}\n`;
 
     if (orderType === 'delivery') {
-      text += `📍 *Delivery Address:* ${deliveryLocation}\n`;
+      text += `Delivery Address: ${deliveryLocation}\n`;
     }
-    text += `🕒 *Time:* ${orderTime}\n`;
-    text += `💳 *Payment:* ${paymentMethod}\n\n`;
+    text += `Time: ${orderTime}\n`;
+    text += `Payment: ${paymentMethod}\n\n`;
 
-    text += `🛒 *ORDERED ITEMS:* \n`;
+    text += `ORDERED ITEMS:\n`;
     cart.forEach((item, idx) => {
       text += `${idx + 1}. ${item.name} x${item.qty} = ${(item.price * item.qty).toLocaleString()} TZS\n`;
     });
@@ -67,7 +67,7 @@ export const CartPage: React.FC = () => {
     text += `*TOTAL AMOUNT: ${finalTotal.toLocaleString()} TZS*\n`;
 
     if (extraNotes.trim()) {
-      text += `\n📝 *Notes:* ${extraNotes}\n`;
+      text += `\nNotes: ${extraNotes}\n`;
     }
 
     text += `\nPlease confirm my order. Thank you!`;

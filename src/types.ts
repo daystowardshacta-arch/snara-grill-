@@ -31,10 +31,31 @@ export interface GalleryPost {
   emoji: string;
   caption: string;
   likes: number;
-  category: 'seafood_grill' | 'ambiance' | 'cocktails' | 'regular';
+  category: 'seafood_grill' | 'biryani' | 'ambiance' | 'cocktails' | 'regular';
   mediaType: 'image' | 'video';
   mediaUrl: string;
   videoUrl?: string;
+}
+
+export interface VideoReel {
+  id: string;
+  title: string;
+  caption: string;
+  thumbnail: string;
+  videoUrl: string;
+  duration: string;
+  likes: number;
+  views: string;
+  tag: string;
+}
+
+export interface VimeoReel {
+  id: string;
+  title: string;
+  caption: string;
+  vimeoSrc: string;
+  tag: string;
+  likes?: number;
 }
 
 export interface NotificationItem {

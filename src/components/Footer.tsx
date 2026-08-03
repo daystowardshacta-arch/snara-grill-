@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flame, MapPin, PhoneCall, Clock, Instagram, Heart, Star, CalendarCheck } from 'lucide-react';
+import { MapPin, PhoneCall, Clock, Instagram, Heart, Star, CalendarCheck } from 'lucide-react';
 import { SANARA_INFO } from '../data/menuData';
 
 export const Footer: React.FC = () => {
@@ -9,18 +9,12 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-stone-800/80">
         {/* Brand Column */}
         <div className="space-y-4">
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 via-orange-600 to-red-700 flex items-center justify-center text-stone-950 font-bold shadow-md">
-              <Flame size={22} className="text-stone-950 fill-amber-100" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-[20px] font-extrabold text-amber-50 tracking-wide leading-none">
-                SANARA <span className="text-orange-500 font-sans text-[15px] uppercase font-bold tracking-wider">GRILL</span>
-              </span>
-              <span className="text-[10px] text-amber-200/70 tracking-widest font-medium uppercase mt-0.5">
-                Mbezi • Dar es Salaam
-              </span>
-            </div>
+          <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0">
+            <img
+              src="/sanara_logo.png"
+              alt="Sanara Grill Logo"
+              className="h-12 w-auto object-contain max-h-[52px]"
+            />
           </Link>
 
           <p className="text-xs text-stone-400 italic font-serif leading-relaxed">

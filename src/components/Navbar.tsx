@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { ShoppingCart, Menu as MenuIcon, X, PhoneCall, Flame, CalendarCheck } from 'lucide-react';
+import { ShoppingCart, Menu as MenuIcon, X, PhoneCall, CalendarCheck } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { NotificationBell } from './NotificationBell';
 import { SANARA_INFO } from '../data/menuData';
@@ -54,19 +54,13 @@ export const Navbar: React.FC = () => {
 
         <Link
           to="/"
-          className="flex items-center gap-2.5 transition-transform duration-300 hover:scale-[1.02]"
+          className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-600 via-orange-600 to-red-700 flex items-center justify-center text-stone-950 font-bold shadow-md border border-amber-500/30">
-            <Flame size={22} className="text-stone-950 fill-amber-100" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-[20px] font-extrabold text-amber-50 tracking-wide leading-none">
-              SANARA <span className="text-orange-500 font-sans text-[15px] uppercase font-bold tracking-wider">GRILL</span>
-            </span>
-            <span className="text-[10px] text-amber-200/70 tracking-widest font-medium uppercase mt-0.5">
-              Mbezi • Dar es Salaam
-            </span>
-          </div>
+          <img
+            src="/sanara_logo.png"
+            alt="Sanara Grill Logo"
+            className="h-11 sm:h-12 w-auto object-contain max-h-[48px]"
+          />
         </Link>
 
         <div className="hidden lg:flex items-center gap-7">
