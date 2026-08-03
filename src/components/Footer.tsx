@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, PhoneCall, Clock, Instagram, Heart, Star, CalendarCheck } from 'lucide-react';
 import { SANARA_INFO } from '../data/menuData';
-import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
+  const [logoError, setLogoError] = useState(false);
+
   return (
     <footer className="bg-[#0f0f0f] text-stone-300 border-t border-stone-800/80 pt-16 pb-28 md:pb-12 px-4 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-stone-800/80">
         {/* Brand Column */}
         <div className="space-y-4">
-          <Link to="/" className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0">
-            <Logo variant="footer" />
+          <Link to="/" className="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] shrink-0">
+            {!logoError && (
+              <img
+                src="/sanara_logo.png"
+                alt="Sanara Grill Logo"
+                onError={() => setLogoError(true)}
+                className="h-12 w-auto object-contain max-h-[52px] rounded-lg shadow-sm"
+              />
+            )}
+            <div className="flex flex-col">
+              <span className="font-serif font-bold text-amber-50 text-base leading-none tracking-wider">
+                SANARA GRILL
+              </span>
+              <span className="text-[10px] text-orange-400 font-sans tracking-widest uppercase mt-0.5 font-semibold">
+                RESTAURANT MBEZI
+              </span>
+            </div>
           </Link>
 
           <p className="text-xs text-stone-400 italic font-serif leading-relaxed">

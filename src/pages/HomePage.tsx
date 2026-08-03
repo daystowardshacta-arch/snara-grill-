@@ -40,12 +40,12 @@ import {
   Car
 } from 'lucide-react';
 import { SymbolIcon } from '../components/SymbolIcon';
-import { Logo } from '../components/Logo';
 
 export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { cart, addToCart } = useCart();
   const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
+  const [logoError, setLogoError] = useState(false);
 
   // Featured dishes for the homepage showcase
   const signatureDishes = ALL_MENU_ITEMS.filter((item) =>
@@ -84,7 +84,16 @@ export const HomePage: React.FC = () => {
 
             {/* Headline & Tagline */}
             <div className="space-y-3">
-              <Logo variant="hero" imgClassName="drop-shadow-2xl mb-2" />
+              {!logoError && (
+                <div className="flex justify-start">
+                  <img
+                    src="/sanara_logo.png"
+                    alt="Sanara Grill Logo"
+                    onError={() => setLogoError(true)}
+                    className="h-20 sm:h-24 md:h-28 w-auto object-contain drop-shadow-2xl mb-2 rounded-xl"
+                  />
+                </div>
+              )}
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-extrabold text-amber-50 tracking-tight leading-[1.1]">
                 SANARA GRILL <span className="text-orange-500 italic font-light">RESTAURANT</span>
               </h1>

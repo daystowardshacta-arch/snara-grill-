@@ -4,7 +4,6 @@ import { ShoppingCart, Menu as MenuIcon, X, PhoneCall, CalendarCheck } from 'luc
 import { useCart } from '../context/CartContext';
 import { NotificationBell } from './NotificationBell';
 import { SANARA_INFO } from '../data/menuData';
-import { Logo } from './Logo';
 
 export const Navbar: React.FC = () => {
   const { cartCount } = useCart();
@@ -12,6 +11,7 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,9 +55,24 @@ export const Navbar: React.FC = () => {
 
         <Link
           to="/"
-          className="flex items-center transition-transform duration-300 hover:scale-[1.02] shrink-0"
+          className="flex items-center gap-3 transition-transform duration-300 hover:scale-[1.02] shrink-0"
         >
-          <Logo variant="header" />
+          {!logoError && (
+            <img
+              src="/sanara_logo.png"
+              alt="Sanara Grill Logo"
+              onError={() => setLogoError(true)}
+              className="h-10 sm:h-12 w-auto object-contain max-h-[48px] rounded-lg shadow-sm"
+            />
+          )}
+          <div className="flex flex-col">
+            <span className="font-serif font-bold text-amber-50 text-base sm:text-lg leading-none tracking-wider">
+              SANARA GRILL
+            </span>
+            <span className="text-[9px] sm:text-[10px] text-orange-400 font-sans tracking-widest uppercase mt-0.5 font-semibold">
+              RESTAURANT MBEZI
+            </span>
+          </div>
         </Link>
 
         <div className="hidden lg:flex items-center gap-7">
